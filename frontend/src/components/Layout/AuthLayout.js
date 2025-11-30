@@ -1,10 +1,17 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import './AuthLayout.css';
 
 const AuthLayout = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
+
   return (
     <div className="auth-layout">
+      <button className="auth-theme-toggle" onClick={toggleTheme} title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+        {isDarkMode ? <FiSun /> : <FiMoon />}
+      </button>
       <div className="auth-sidebar">
         <div className="auth-sidebar-content">
           <h1>📊 Employee Attendance System</h1>

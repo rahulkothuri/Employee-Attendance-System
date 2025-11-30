@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/slices/authSlice';
+import { useTheme } from '../../context/ThemeContext';
 import { 
   FiHome, 
   FiClock, 
@@ -11,7 +12,9 @@ import {
   FiUsers, 
   FiFileText,
   FiMenu,
-  FiX
+  FiX,
+  FiSun,
+  FiMoon
 } from 'react-icons/fi';
 import './Layout.css';
 
@@ -20,6 +23,7 @@ const Layout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const handleLogout = () => {
     dispatch(logout());
@@ -84,10 +88,16 @@ const Layout = () => {
               <span className="user-role">{user?.role}</span>
             </div>
           </div>
-          <button className="logout-btn" onClick={handleLogout}>
-            <FiLogOut />
-            <span>Logout</span>
-          </button>
+          <div className="sidebar-actions">
+            <button className="theme-toggle-btn" onClick={toggleTheme} title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+              {isDarkMode ? <FiSun /> : <FiMoon />}
+              <span>{isDarkMode ? 'Light' : 'Dark'}</span>
+            </button>
+            <button className="logout-btn" onClick={handleLogout}>
+              <FiLogOut />
+              <span>Logout</span>
+            </button>
+          </div>
         </div>
       </aside>
 

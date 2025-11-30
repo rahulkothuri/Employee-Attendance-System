@@ -1,3 +1,52 @@
+/* Theme Variables */
+:root {
+  /* Light Theme (default) */
+  --bg-primary: #f3f4f6;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e5e7eb;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --hover-bg: #f9fafb;
+  --accent-primary: #4f46e5;
+  --accent-secondary: #7c3aed;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-tertiary: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --card-bg: #1f2937;
+  --input-bg: #374151;
+  --input-border: #4b5563;
+  --hover-bg: #374151;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --info: #60a5fa;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +58,9 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f3f4f6;
-  color: #1f2937;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -20,16 +70,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--bg-tertiary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: var(--text-muted);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1a1;
+  background: var(--text-secondary);
 }
 
 /* React Calendar Customization */
@@ -150,10 +200,11 @@ body {
 
 /* Card styles */
 .card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 /* Form styles */
@@ -165,7 +216,7 @@ body {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color: #374151;
+  color: var(--text-primary);
   font-size: 14px;
 }
 
@@ -173,16 +224,18 @@ body {
 .form-group select {
   width: 100%;
   padding: 10px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--input-border);
   border-radius: 8px;
   font-size: 14px;
-  transition: border-color 0.2s;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.2s, background-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #4f46e5;
+  border-color: var(--accent-primary);
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
@@ -199,18 +252,23 @@ table {
 th, td {
   padding: 12px 16px;
   text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
 }
 
 th {
-  background-color: #f9fafb;
+  background-color: var(--bg-tertiary);
   font-weight: 600;
-  color: #374151;
+  color: var(--text-primary);
   font-size: 14px;
 }
 
+td {
+  color: var(--text-primary);
+}
+
 tr:hover {
-  background-color: #f9fafb;
+  background-color: var(--hover-bg);
 }
 
 /* Badge styles */

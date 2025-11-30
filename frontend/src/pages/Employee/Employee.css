@@ -16,12 +16,12 @@
 .page-header h1 {
   font-size: 28px;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 
 .page-header p {
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .header-badge {
@@ -109,13 +109,14 @@
 }
 
 .stat-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 24px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .stat-icon {
@@ -150,7 +151,7 @@
 
 .stat-content h4 {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-secondary);
   font-weight: 500;
   margin-bottom: 4px;
 }
@@ -158,13 +159,13 @@
 .stat-number {
   font-size: 28px;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 2px;
 }
 
 .stat-content span {
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 /* Card */
@@ -178,14 +179,14 @@
 .card-header h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .view-all {
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #4f46e5;
+  color: var(--accent-primary);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -197,7 +198,7 @@
 
 .text-center {
   text-align: center;
-  color: #6b7280;
+  color: var(--text-secondary);
   padding: 24px !important;
 }
 
@@ -282,17 +283,18 @@
 }
 
 .attendance-actions-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .attendance-status h3 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 24px;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .status-items {
@@ -331,19 +333,19 @@
   justify-content: center;
   font-size: 12px;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .status-info h4 {
   font-size: 14px;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 
 .status-info p {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .status-connector {
@@ -426,16 +428,18 @@
 }
 
 .attendance-tips {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .attendance-tips h3 {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 16px;
+  color: var(--text-primary);
 }
 
 .attendance-tips ul {
@@ -446,8 +450,8 @@
 .attendance-tips li {
   padding: 8px 0;
   font-size: 14px;
-  color: #4b5563;
-  border-bottom: 1px solid #f3f4f6;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .attendance-tips li:last-child {
@@ -465,18 +469,19 @@
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  border: 1px solid #e5e7eb;
-  background: white;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
   border-radius: 8px;
   font-size: 14px;
+  color: var(--text-primary);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .toggle-btn.active {
-  background: #4f46e5;
+  background: var(--accent-primary);
   color: white;
-  border-color: #4f46e5;
+  border-color: var(--accent-primary);
 }
 
 .summary-grid {
@@ -487,13 +492,14 @@
 }
 
 .summary-card {
-  background: white;
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   gap: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .summary-icon {
@@ -535,13 +541,13 @@
 .summary-number {
   font-size: 24px;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-primary);
   display: block;
 }
 
 .summary-label {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .attendance-content {
@@ -555,10 +561,11 @@
 }
 
 .calendar-container {
-  background: white;
+  background: var(--card-bg);
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .calendar-legend {
@@ -567,7 +574,7 @@
   gap: 24px;
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--border-color);
 }
 
 .legend-item {
@@ -575,7 +582,7 @@
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .legend-dot {
@@ -601,10 +608,11 @@
 }
 
 .date-details-card {
-  background: white;
+  background: var(--card-bg);
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .date-details-card h3 {
@@ -613,7 +621,7 @@
   gap: 8px;
   font-size: 18px;
   margin-bottom: 20px;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .date-details {
@@ -627,7 +635,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 0;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .detail-row:last-child {
@@ -635,17 +643,17 @@
 }
 
 .detail-row span {
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .detail-row strong {
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .no-data {
   text-align: center;
   padding: 40px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 /* Profile Page */
@@ -656,11 +664,12 @@
 }
 
 .profile-card {
-  background: white;
+  background: var(--card-bg);
   padding: 40px 24px;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .profile-avatar-large {
@@ -679,20 +688,21 @@
 
 .profile-card h2 {
   font-size: 24px;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 
 .profile-details-card {
-  background: white;
+  background: var(--card-bg);
   padding: 32px;
   border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .profile-details-card h3 {
   font-size: 20px;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 24px;
 }
 
@@ -710,25 +720,25 @@
 .info-icon {
   width: 48px;
   height: 48px;
-  background: #f3f4f6;
+  background: var(--bg-tertiary);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  color: #4f46e5;
+  color: var(--accent-primary);
 }
 
 .info-content label {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-secondary);
   display: block;
   margin-bottom: 4px;
 }
 
 .info-content p {
   font-size: 16px;
-  color: #1f2937;
+  color: var(--text-primary);
   font-weight: 500;
 }
 

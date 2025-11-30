@@ -126,13 +126,44 @@
   background: rgba(239, 68, 68, 0.3);
 }
 
+/* Theme Toggle Button */
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-toggle-btn svg {
+  font-size: 18px;
+}
+
 /* Main content */
 .main-content {
   flex: 1;
   margin-left: 260px;
   padding: 24px;
   min-height: 100vh;
-  background-color: #f3f4f6;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
 
 /* Mobile menu button */
