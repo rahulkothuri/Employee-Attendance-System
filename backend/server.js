@@ -17,7 +17,8 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://main.d37h5qumkynh8u.amplifyapp.com/'
+    'https://main.d37h5qumkynh8u.amplifyapp.com',
+    'https://an7hymydud.execute-api.ap-south-1.amazonaws.com'
   ],
   credentials: true
 }));
