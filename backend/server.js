@@ -14,7 +14,13 @@ const dashboardRoutes = require('./routes/dashboard');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://main.d37h5qumkynh8u.amplifyapp.com/'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Connect to MongoDB
