@@ -68,6 +68,20 @@ A full-stack web application for managing employee attendance with role-based ac
 
 ## Screenshots
 
+![Image](https://github.com/user-attachments/assets/16e648da-f1cc-4650-97b6-54024dcd42bc)
+![Image](https://github.com/user-attachments/assets/1fc667ee-97e2-4b62-b606-7ceae9891b5f)
+![Image](https://github.com/user-attachments/assets/db4f4843-f443-4974-afb7-feddd6abf631)
+![Image](https://github.com/user-attachments/assets/6f901be3-ec17-438e-81d5-2e02947e1b42)
+![Image](https://github.com/user-attachments/assets/2965d1aa-feef-47dc-aa88-70b0c60ae361)
+![Image](https://github.com/user-attachments/assets/9d72337b-76bb-4779-99d1-9a5e9abc0372)
+![Image](https://github.com/user-attachments/assets/f2839755-f7fd-461a-9153-12201d52b1ea)
+<img width="1470" height="956" alt="image" src="https://github.com/user-attachments/assets/35739be1-c111-49be-8e45-a06a78a43db0" />
+![Image](https://github.com/user-attachments/assets/a609bb6c-baac-4506-a325-21ffa93405a1)
+![Image](https://github.com/user-attachments/assets/070dd90a-1f34-4c36-a456-0656f8036947)
+<img width="1470" height="956" alt="image" src="https://github.com/user-attachments/assets/caf7290d-fc0f-46c7-aab8-4dc4cda3096c" />
+![Image](https://github.com/user-attachments/assets/7cce323d-9139-4c37-a08c-a9d544ecd78d)
+
+
 ## 📁 Project Structure
 
 ```
@@ -250,31 +264,6 @@ Application runs on `http://localhost:3000`
 }
 ```
 
-## 🎨 Theme Support
 
-The application supports both dark and light themes:
-
-### Using Theme Toggle
-- Click the theme toggle button in the navigation bar
-- Theme preference is automatically saved to localStorage
-- System preference is detected on first visit
-
-
-
-### Backend (EC2)
-```bash
-pm2 status                    # Check app status
-pm2 logs attendance-backend   # View logs
-pm2 restart attendance-backend # Restart app
-pm2 stop attendance-backend   # Stop app
-sudo systemctl status nginx   # Check Nginx status
-```
-
-### Frontend (Local)
-```bash
-npm start     # Start development server
-npm run build # Build for production
-npm test      # Run tests
-```
 
 
