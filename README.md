@@ -1,10 +1,17 @@
 # Employee Attendance System
 
-A full-stack web application for managing employee attendance with role-based access control. Built with React, Redux Toolkit, Node.js, Express, and MongoDB.
+A full-stack web application for managing employee attendance with role-based access control. Built with React, Redux Toolkit, Node.js, Express, and MongoDB. Features **Dark/Light theme support** and deployed on AWS cloud infrastructure.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Node](https://img.shields.io/badge/node-%3E%3D16.0.0-green.svg)
 ![React](https://img.shields.io/badge/react-18.2.0-blue.svg)
+![AWS](https://img.shields.io/badge/AWS-Amplify%20%7C%20EC2-orange.svg)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)
+
+## 🌐 Live Demo
+
+- **Frontend:** [https://main.d37h5qumkynh8u.amplifyapp.com](https://main.d37h5qumkynh8u.amplifyapp.com)
+- **Backend API:** Hosted on AWS EC2 via API Gateway
 
 ## 📋 Features
 
@@ -23,16 +30,24 @@ A full-stack web application for managing employee attendance with role-based ac
 - ✅ Generate and export reports (CSV)
 - ✅ Attendance analytics and trends
 
+### UI/UX Features
+- 🌙 **Dark Mode Support** - Toggle between light and dark themes
+- ☀️ **Light Mode Support** - Clean, professional light theme
+- 💾 **Theme Persistence** - Theme preference saved in localStorage
+- 📱 **Responsive Design** - Works on desktop, tablet, and mobile
+
 ## 🛠️ Tech Stack
 
 ### Frontend
 - React 18.2.0
 - Redux Toolkit (State Management)
 - React Router DOM (Routing)
+- React Context API (Theme Management)
 - Axios (HTTP Client)
-- Recharts (Data Visualization)
+- Chart.js & React-Chartjs-2 (Data Visualization)
 - Date-fns (Date Formatting)
 - React Icons
+- React Toastify (Notifications)
 
 ### Backend
 - Node.js
@@ -41,6 +56,17 @@ A full-stack web application for managing employee attendance with role-based ac
 - JWT Authentication
 - bcryptjs (Password Hashing)
 - json2csv (CSV Export)
+- CORS (Cross-Origin Resource Sharing)
+
+### Cloud Infrastructure (AWS)
+- **Frontend Hosting:** AWS Amplify
+- **Backend Hosting:** AWS EC2 (Amazon Linux 2023)
+- **API Gateway:** AWS API Gateway (HTTPS proxy)
+- **Database:** MongoDB Atlas
+- **Process Manager:** PM2
+- **Reverse Proxy:** Nginx
+
+## Screenshots
 
 ## 📁 Project Structure
 
@@ -65,6 +91,8 @@ Employee-Attendance-System/
 │   ├── src/
 │   │   ├── components/
 │   │   │   └── Layout/
+│   │   ├── context/
+│   │   │   └── ThemeContext.js
 │   │   ├── pages/
 │   │   │   ├── Auth/
 │   │   │   ├── Employee/
@@ -72,6 +100,7 @@ Employee-Attendance-System/
 │   │   ├── store/
 │   │   │   └── slices/
 │   │   ├── services/
+│   │   │   └── api.js
 │   │   ├── App.js
 │   │   └── index.js
 │   └── package.json
@@ -82,59 +111,65 @@ Employee-Attendance-System/
 
 ### Prerequisites
 - Node.js >= 16.0.0
-- MongoDB (local or Atlas)
+- MongoDB Atlas account (or local MongoDB)
 - npm or yarn
+- Git
 
-### Installation
+### Local Development Setup
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/Employee-Attendance-System.git
-   cd Employee-Attendance-System
-   ```
+#### 1. Clone the repository
+```bash
+git clone https://github.com/rahulkothuri/Employee-Attendance-System.git
+cd Employee-Attendance-System
+```
 
-2. **Backend Setup**
-   ```bash
-   cd backend
-   npm install
-   ```
+#### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
 
-3. **Configure Environment Variables**
-   
-   Create a `.env` file in the backend directory:
-   ```env
-   PORT=8008
-   MONGODB_URI=mongodb://localhost:27017/employee-attendance
-   JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-   JWT_EXPIRE=7d
-   ```
+#### 3. Configure Backend Environment Variables
 
-4. **Frontend Setup**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+Create a `.env` file in the `backend` directory:
+```env
+PORT=8008
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/employee-attendance?retryWrites=true&w=majority
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_EXPIRE=7d
+NODE_ENV=development
+```
 
-### Running the Application
+#### 4. Frontend Setup
+```bash
+cd ../frontend
+npm install
+```
 
-1. **Start MongoDB** (if running locally)
-   ```bash
-   mongod
-   ```
+#### 5. Configure Frontend Environment Variables (Optional)
 
-2. **Start Backend Server**
-   ```bash
-   cd backend
-   npm run dev
-   ```
-   Server runs on `http://localhost:8008`
+Create a `.env` file in the `frontend` directory:
+```env
+REACT_APP_API_URL=http://localhost:8008/api
+```
 
-3. **Start Frontend Development Server**
-   ```bash
-   cd frontend
-   npm start
-   ```
-   Application runs on `http://localhost:3000`
+### Running Locally
+
+#### Start Backend Server
+```bash
+cd backend
+npm run dev
+# or
+node server.js
+```
+Server runs on `http://localhost:8008`
+
+#### Start Frontend Development Server
+```bash
+cd frontend
+npm start
+```
+Application runs on `http://localhost:3000`
 
 ## 📚 API Documentation
 
@@ -165,12 +200,19 @@ Employee-Attendance-System/
 | GET | `/api/dashboard/employee` | Employee dashboard stats | Employee |
 | GET | `/api/dashboard/manager` | Manager dashboard stats | Manager |
 
+### Health Check
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Check server status |
+
 ## 🔐 User Roles
 
 ### Employee
 - Can mark their own attendance
 - View personal attendance history
 - Access personal dashboard
+- Toggle dark/light theme
 
 ### Manager
 - All employee permissions
@@ -208,45 +250,31 @@ Employee-Attendance-System/
 }
 ```
 
-## 🎨 Screenshots
+## 🎨 Theme Support
 
-### Employee Dashboard
-- Overview statistics
-- Recent attendance records
-- Quick check-in/out buttons
+The application supports both dark and light themes:
 
-### Manager Dashboard
-- Team attendance overview
-- Charts and analytics
-- Employee performance metrics
+### Using Theme Toggle
+- Click the theme toggle button in the navigation bar
+- Theme preference is automatically saved to localStorage
+- System preference is detected on first visit
 
-### Attendance History
-- Filterable attendance records
-- Date range selection
-- Export functionality
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Backend (EC2)
+```bash
+pm2 status                    # Check app status
+pm2 logs attendance-backend   # View logs
+pm2 restart attendance-backend # Restart app
+pm2 stop attendance-backend   # Stop app
+sudo systemctl status nginx   # Check Nginx status
+```
 
-## 📝 License
+### Frontend (Local)
+```bash
+npm start     # Start development server
+npm run build # Build for production
+npm test      # Run tests
+```
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Authors
-
-- Your Name - Initial work
-
-## 🙏 Acknowledgments
-
-- React Team for the amazing framework
-- MongoDB for the database
-- All contributors who helped with the project
-
----
-
-⭐ Star this repo if you find it helpful!
